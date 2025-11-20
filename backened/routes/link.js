@@ -4,10 +4,10 @@ import pool from "../db.js";
 const router = express.Router();
 
 router.post("/", async (req, res) => {
-  const { targetUrl, code } = req.body;
+  const { target_url, code } = req.body;
 
   try {
-    try { new URL(targetUrl); }
+    try { new URL(target_url); }
     catch { return res.status(400).json({ error: "Invalid URL" }); }
 
     const existing = await pool.query("SELECT * FROM links WHERE code=$1", [code]);
@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
 
     const result = await pool.query(
       "INSERT INTO links (code, target_url) VALUES ($1, $2) RETURNING *",
-      [code, targetUrl]
+      [code, target_url]
     );
 
     const saved = result.rows[0];
@@ -27,6 +27,7 @@ router.post("/", async (req, res) => {
     res.json(saved);
 
   } catch (err) {
+    console.log("err are ====>",err)
     res.status(500).json({ error: "Server error" });
   }
 });
@@ -58,12 +59,13 @@ router.get("/", async (req, res) => {
 
     const final = result.rows.map(row => ({
       ...row,
-      short_url: `http://localhost:8000/${row.code}`
+      short_url: `http://localhost:9000/${row.code}`
     }));
 
     res.json(final);
 
   } catch (err) {
+    console.error("GET /api/links error:", err);
     res.status(500).json({ error: "Server error" });
   }
 });
