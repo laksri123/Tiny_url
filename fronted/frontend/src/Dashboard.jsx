@@ -8,7 +8,16 @@ function App() {
   const [links, setLinks] = useState([]);
   const [targetUrl, setTargetUrl] = useState("");
   const [code, setCode] = useState("");
+  const [loading, setLoading] = useState(false);
+const [codeError, setCodeError] = useState("");
   const navigate = useNavigate();
+
+  const handleCodeChange = (e) => {
+  const v = e.target.value;
+  setCode(v);
+  if (v && !/^[A-Za-z0-9]{6,8}$/.test(v)) setCodeError("Code must be 6-8 chars, letters & numbers only");
+  else setCodeError("");
+};
 
 
   const fetchLinks = async () => {
@@ -22,7 +31,8 @@ function App() {
 
   const addLink = async () => {
     if (!targetUrl.trim()) return alert("URL is required");
-
+    if (codeError) return alert("Fix code error");
+      setLoading(true);
     try {
       await API.post("/api/links", {
         target_url: targetUrl,
@@ -43,7 +53,7 @@ function App() {
     }
   };
  const handleStats = (linkCode) => {
-  navigate(`/stats/${linkCode}`);
+  navigate(`/code/${linkCode}`);
 };
 
   const deleteLink = async (c) => {
@@ -76,13 +86,13 @@ function App() {
           type="text"
           placeholder="Optional custom code..."
           value={code}
-          onChange={(e) => setCode(e.target.value)}
+          onChange={handleCodeChange}
           className="input-box"
         />
+        {codeError && <div className="error">{codeError}</div>}
 
-        <button className="btn" onClick={addLink}>
-          Create
-        </button>
+        <button disabled={loading || codeError} onClick={addLink}>{loading ? "Creating..." : "Create"}</button>
+
       </div>
 
      {links.length > 0 && (
