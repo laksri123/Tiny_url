@@ -99,9 +99,9 @@ function App() {
         {links.map((item) => (
           <li key={item.code} className="list-item">
             
-            {/* FIX: Wrap URL information in link-info div */}
+           
             <div className="link-info"> 
-                {/* Short URL is now link-code */}
+                
                 <div className="link-code">
                     <strong>Short URL:</strong>
                     <a
@@ -113,7 +113,7 @@ function App() {
                     </a>
                 </div>
                 
-                {/* Original URL is now link-url */}
+              
                 <div className="link-url">
                     <strong>Original:</strong> {item.target_url}
                 </div>
@@ -122,7 +122,7 @@ function App() {
 
                 </div>
             </div>
-            {/* FIX: Removed the unnecessary <br /> tags */}
+         
 
             <button className="delete-btn" onClick={() => deleteLink(item.code)}>
               Delete

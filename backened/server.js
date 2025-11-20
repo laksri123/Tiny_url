@@ -8,7 +8,7 @@ dotenv.config();
 const app = express();
 const PORT = 9000;
 
-// ✅ CORS MUST BE FIRST BEFORE ROUTES
+
 app.use(cors({
     origin: "http://localhost:5173",
     methods: ["GET", "POST", "PUT", "DELETE"],
@@ -25,10 +25,10 @@ app.get("/healthz", (req, res) => {
   res.status(200).json({ ok: true, version: "1.0" });
 });
 
-// ✅ API routes
+
 app.use("/api/links", linkRoutes);
 
-// ⚠️ IMPORTANT — Place redirect route at VERY BOTTOM
+
 app.get("/:code", async (req, res) => {
   const { code } = req.params;
 

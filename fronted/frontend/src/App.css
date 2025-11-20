@@ -1,13 +1,13 @@
-/* Page background */
+
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
   background: #f4f5f7;
 }
 
-/* Main container */
+
 .container {
-  width: 450px;
+  width: 50%;
   margin: 50px auto;
   background: white;
   padding: 30px;
@@ -15,7 +15,7 @@ body {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* Heading */
+
 h1 {
   text-align: center;
   font-size: 30px;
@@ -24,7 +24,7 @@ h1 {
   color: #333;
 }
 
-/* Inputs */
+
 .input-section {
   display: flex;
   flex-direction: column;
@@ -47,7 +47,7 @@ h1 {
   background: white;
 }
 
-/* Button */
+
 .btn {
   padding: 12px;
   background: #4f46e5;
@@ -64,26 +64,24 @@ h1 {
   background: #4338ca;
 }
 
-/* List styling */
-/* List styling */
-/* List styling */
+
 ul {
   margin-top: 25px;
   padding: 0;
   list-style: none;
 }
 
-/* NEW: Style for the list section heading */
+
 .list-header {
   display: flex;
   align-items: center;
-  justify-content: center; /* Center the heading content */
+  justify-content: center; 
   gap: 8px;
   margin-top: 30px;
   margin-bottom: 15px;
   font-size: 20px;
   font-weight: 700;
-  color: #4f46e5; /* Primary color for the heading */
+  color: #4f46e5; 
 }
 
 .list-item {
@@ -95,31 +93,31 @@ ul {
   justify-content: space-between;
   align-items: center;
   border: 1px solid #c8c8ff; 
-  /* FIX: Ensure item can shrink and wrap content */
+  
   min-width: 0; 
 }
 
 .link-info {
   display: flex;
   flex-direction: column;
-  /* FIX: Allow to grow and prevent overflow */
+
   flex-grow: 1; 
-  min-width: 0; /* Crucial fix for flex container text overflow */
-  margin-right: 15px; /* Space from delete button */
+  min-width: 0; 
+  margin-right: 15px;
 }
 
 .link-code {
   font-size: 16px;
-  /* Make the text inside a bit bolder, but not the label */
+ 
   font-weight: 500; 
   color: #4f46e5; 
   word-break: break-all; 
-  margin-bottom: 4px; /* Space between short and original URL */
+  margin-bottom: 4px; 
 }
 
 .link-code strong {
   font-weight: 700;
-  color: #333; /* Make the label ("Short URL:") stand out */
+  color: #333;
   margin-right: 5px;
 }
 
@@ -131,10 +129,10 @@ ul {
 
 .link-url strong {
   font-weight: 700;
-  color: #333; /* Make the label ("Original:") stand out */
+  color: #333; 
   margin-right: 5px;
 }
-/* Delete button */
+
 .delete-btn {
   padding: 8px 12px;
   background: #ff5f5f;
@@ -149,7 +147,7 @@ ul {
 .delete-btn:hover {
   background: #e04848;
 }
-/* small buttons / stat card styles used by Stats.jsx & Dashboard */
+
 .stat-card {
   background: #fff;
   border-radius: 12px;

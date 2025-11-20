@@ -32,7 +32,7 @@ export default function Stats() {
 
   useEffect(() => {
     fetchLink();
-    // eslint-disable-next-line
+   
   }, [code]);
 
   const copyShortUrl = async () => {
@@ -50,7 +50,7 @@ export default function Stats() {
     try {
       await API.delete(`/api/links/${code}`);
       alert("Deleted");
-      navigate("/"); // go back to dashboard
+      navigate("/"); 
     } catch (err) {
       alert("Delete failed");
       console.error(err);
