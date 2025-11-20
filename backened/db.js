@@ -1,16 +1,21 @@
 import pkg from "pg";
+import dotenv from "dotenv";
+dotenv.config();
+
 const { Pool } = pkg;
 
 const pool = new Pool({
-  user: "my_user",       
-  host: "localhost",     
-  database: "Tinylink_db",   
-  password: "12345",     
-  port: 5432,            
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    require: true,
+    rejectUnauthorized: false,
+  },
 });
 
-pool.connect()
-  .then(() => console.log("Connected to PostgreSQL database"))
-  .catch(err => console.error("Connection error", err.stack));
+// TEST CONNECTION
+pool
+  .query("SELECT NOW()")
+  .then(() => console.log("✅ Connected to PostgreSQL (Render)"))
+  .catch((err) => console.error("❌ Database connection error:", err));
 
 export default pool;
