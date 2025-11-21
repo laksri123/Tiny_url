@@ -13,7 +13,7 @@ app.use(cors({
      origin: [
     "http://localhost:5173",
     "https://tiny-url-2-degy.onrender.com",
-    "https://https://velvety-lolly-e37839.netlify.app"
+    "https://tiny-url-frontend-5.onrender.com"
   ],
     methods: ["GET", "POST", "PUT", "DELETE"],
 }));
