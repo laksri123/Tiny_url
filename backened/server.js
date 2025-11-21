@@ -12,7 +12,7 @@ const PORT = 9000;
 app.use(cors({
      origin: [
     "http://localhost:5173",
-    "tiny-url-2-degy.onrender.com"
+    "https://tiny-url-2-degy.onrender.com"
   ],
     methods: ["GET", "POST", "PUT", "DELETE"],
 }));

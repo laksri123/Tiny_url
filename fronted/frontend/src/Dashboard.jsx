@@ -23,6 +23,7 @@ const [codeError, setCodeError] = useState("");
   const fetchLinks = async () => {
     try {
       const res = await API.get("/api/links");
+      console.log("res data is", res.data)
       setLinks(res.data);
     } catch (err) {
       console.error(err);
