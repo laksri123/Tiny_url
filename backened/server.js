@@ -12,7 +12,8 @@ const PORT = 9000;
 app.use(cors({
      origin: [
     "http://localhost:5173",
-    "https://tiny-url-2-degy.onrender.com"
+    "https://tiny-url-2-degy.onrender.com",
+    "https://voluble-rabanadas-e7da3e.netlify.app"
   ],
     methods: ["GET", "POST", "PUT", "DELETE"],
 }));
