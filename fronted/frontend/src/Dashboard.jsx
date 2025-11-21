@@ -115,11 +115,11 @@ const [codeError, setCodeError] = useState("");
                 <div className="link-code">
                     <strong>Short URL:</strong>
                     <a
-                        href={`http://localhost:9000/${item.code}`}
+                        href={`http://tiny-url-2-degy.onrender.com/${item.code}`}
                         target="_blank"
                         rel="noreferrer"
                     >
-                        {`http://localhost:9000/${item.code}`}
+                        {`http://tiny-url-2-degy.onrender.com/${item.code}`}
                     </a>
                 </div>
                 
